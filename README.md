@@ -9,4 +9,4 @@ cd target
 run jar file with-dependencies
 ```
 
-![Alt Text](https://blog-firmantoari.s3.ap-southeast-1.amazonaws.com/jPokeDex.gif)
+![jPokeDex](https://user-images.githubusercontent.com/1453146/137577903-d0839436-11f6-4ab1-8e1d-53ee26ea92e9.gif)
