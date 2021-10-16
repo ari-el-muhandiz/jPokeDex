@@ -4,10 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>groupId</groupId>
-    <artifactId>java</artifactId>
+    <groupId>javaJam.jPokedex</groupId>
+    <artifactId>jPokeDex</artifactId>
     <version>1.0-SNAPSHOT</version>
-
+    <packaging>jar</packaging>
+    
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
@@ -21,5 +22,43 @@
             <version>1.14.3</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>javaJam.jPokedex.Main</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+              <directory>${project.basedir}</directory><!-- from -->
+              <targetPath>${project.build.directory}</targetPath><!-- to -->
+              <includes><!-- what -->
+                <include>pokemon.txt</include>
+              </includes>
+            </resource>
+          </resources>
+    </build>
 
 </project>
